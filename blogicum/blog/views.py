@@ -51,4 +51,7 @@ def index(request):
 def post_detail(request, pk):
     post = posts[pk]
     return render(request, 'blog/includes/detail.html', context = {'post': post})
-# Create your views here.
+
+
+def category_posts(request, category_slug):
+    return render(request, 'blog/includes/category.html', {'category_slug': category_slug})
