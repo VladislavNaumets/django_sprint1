@@ -47,7 +47,8 @@ posts = {
 
 
 def index(request):
-    return render(request, 'blog/index.html', context={'posts': posts.values()})
+    template = 'blog/index.html'
+    return render(request, template, context={'posts': posts.values()})
 
 
 def post_detail(request, pk):
