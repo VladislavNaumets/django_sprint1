@@ -1,6 +1,5 @@
 from django.contrib import admin  # type: ignore
 
-
 from django.urls import include, path  # type: ignore
 
 urlpatterns = [
