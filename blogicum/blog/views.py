@@ -2,8 +2,8 @@ from django.shortcuts import render  # type: ignore
 
 from django.http import Http404
 
-posts = {
-    0: {
+posts = [
+    {
         'id': 0,
         'location': 'Остров отчаянья',
         'date': '30 сентября 1659 года',
@@ -15,7 +15,7 @@ posts = {
                 полумёртвым на берег этого проклятого острова,
                 который назвал островом Отчаяния.''',
     },
-    1: {
+    {
         'id': 1,
         'location': 'Остров отчаянья',
         'date': '1 октября 1659 года',
@@ -31,7 +31,7 @@ posts = {
                 построить баркас, на котором и выбрались бы из этого
                 гиблого места.''',
     },
-    2: {
+    {
         'id': 2,
         'location': 'Остров отчаянья',
         'date': '25 октября 1659 года',
@@ -43,16 +43,17 @@ posts = {
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-}
+]
 
+posts_dict = {post['id']: post for post in posts}
 
 def index(request):
     template = 'blog/index.html'
-    return render(request, template, context={'posts': posts.values()})
+    return render(request, template, context={'posts': posts_dict.values})
 
 
 def post_detail(request, pk):
-    post = posts.get(pk)
+    post = posts_dict.get(pk)
     if post is None:
         raise Http404(f"Post with id {pk} not found.")
     return render(request, 'blog/detail.html', context={'post': post})
