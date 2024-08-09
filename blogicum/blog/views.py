@@ -45,13 +45,13 @@ posts = [
 
 
 def index(request):
-    return render(request, 'blog/includes/index.html', context = {'posts': posts})
+    return render(request, 'blog/index.html', context = {'posts': posts})
 
 
 def post_detail(request, pk):
     post = posts[pk]
-    return render(request, 'blog/includes/detail.html', context = {'post': post})
+    return render(request, 'blog/detail.html', context = {'post': post})
 
 
 def category_posts(request, category_slug):
-    return render(request, 'blog/includes/category.html', {'category_slug': category_slug})
+    return render(request, 'blog/category.html', {'category_slug': category_slug})
