@@ -43,9 +43,10 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-]
+] 
 
-posts_dict = {post['id']: post for post in posts}
+posts_dict = {post['id']: post for post in reversed(posts)}
+
 
 def index(request):
     template = 'blog/index.html'

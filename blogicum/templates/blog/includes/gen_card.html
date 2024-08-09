@@ -1,4 +1,4 @@
-{% for post in posts reversed %}
+{% for post in posts %}
 {% include 'blog/includes/post_detail.html' with filtered_text=post.text|truncatewords:10 %}
 <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
 <hr>
